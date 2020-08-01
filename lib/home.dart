@@ -15,20 +15,72 @@
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
-  // TODO: Make a collection of cards (102)
-  // TODO: Add a variable for Category (104)
   @override
   Widget build(BuildContext context) {
-    // TODO: Return an AsymmetricView (104)
-    // TODO: Pass Category variable to AsymmetricView (104)
-    return Scaffold(
-      // TODO: Add app bar (102)
-      // TODO: Add a grid view (102)
-      body: Center(
-        child: Text('You did it!'),
-      ),
-      // TODO: Set resizeToAvoidBottomInset (101)
-      resizeToAvoidBottomInset: false,
+    return new Scaffold(
+        body: new Stack(
+          children: <Widget>[
+            new Container(
+              decoration: new BoxDecoration(
+                image: new DecorationImage(
+                  image: new AssetImage("assets/plano_de_fundo.png"), fit: BoxFit.cover,),
+              ),
+            ),
+
+            new Center(
+              child: ListView(
+                padding: EdgeInsets.only(top: 60, left: 40, right: 40),
+                children: <Widget>[
+                  SizedBox(
+                    width: 128,
+                    height: 128,
+                    child: Image.asset("assets/bora.png"),
+                  ),
+                  SizedBox(
+                    height: 200,
+                  ),
+                  Container(
+                    height: 50,
+                    alignment: Alignment.center,
+                    width: 1,
+                    decoration: BoxDecoration(
+                      color: Color(0xFF0096AA),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(5),
+                      ),
+                    ),
+                    child: SizedBox.expand(
+                      child: FlatButton(
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Text(
+                              "DESCOBRIR DESTINO",
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                color: Colors.yellow,
+                                fontSize: 15,
+                              ),
+                              textAlign: TextAlign.center,
+                            ),
+                          ],
+                        ),
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => HomePage(),
+                            ),
+                          );
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        )
     );
   }
 }
